@@ -2,6 +2,7 @@ using System;
 using System.Data.Common;
 using dblaba.Database.Tables;
 using Npgsql;
+using Pango;
 
 namespace dblaba.Database
 {
@@ -9,11 +10,12 @@ namespace dblaba.Database
     {
         public static bool IsTableCreated(string tableName) {
             var query = string.Format(@"
-                SELECT * FROM information_schema.tables WHERE table_name = {0} AND table_schema = 'public';
+                SELECT * FROM information_schema.tables WHERE table_name = '{0}' AND table_schema = 'public';
             ", tableName);
 
-            var countOfLines = Client.ExecuteQuite(query);
-            return Convert.ToBoolean(countOfLines);
+            System.Console.WriteLine(query);
+            var reader = Client.ExecuteReader(query);
+            return reader != null && reader.HasRows;
         }
 
         public static void Init(bool flagCreateNotForced, bool flagCreateForced) {
