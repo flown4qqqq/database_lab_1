@@ -2,28 +2,21 @@ using System;
 using Npgsql;
 
 namespace dblaba.Database.Tables {
-    public class TableTeams : Table {
-        public override string tableName { 
-            get => "teams";
+    public class TableTeam : Table {
+        public override string Name { 
+            get => "team";
         }
 
-        private readonly string colId = "id";
-        private readonly string colName = "name";
-        private readonly string colSum = "sum";
-        private readonly string colCountry = "country";
+        public readonly string ColId = "id";
+        public readonly string ColName = "name";
+        public readonly string ColSum = "sum";
+        public readonly string ColCountry = "country";
 
         public override void Create(bool forced) {
-            if (IsCreated()) {
-                if (forced) {
-                    var query = string.Format(@"
-                        DROP TABLE {0};
-                    ", tableName);
+            var proccesResult = ProcessDrop(forced);
 
-                    Client.ExecuteQuite(query);
-                } else {
-                    System.Console.WriteLine("TableTeam already exist, so it was not created");
-                    return;
-                }
+            if (proccesResult == ProcessResult.Break) {
+                return;
             }
 
             {
@@ -35,7 +28,7 @@ namespace dblaba.Database.Tables {
                         {3} DECIMAL,
                         {4} VARCHAR(100)
                     );
-                ", tableName, colId, colName, colSum, colCountry);
+                ", Name, ColId, ColName, ColSum, ColCountry);
 
                 Client.ExecuteQuite(query);
             }
@@ -45,6 +38,7 @@ namespace dblaba.Database.Tables {
                     INSERT INTO {0} ({1}, {2}, {3}, {4})
                     VALUES
                         (1, 'Kangaroo', 0, 'Australia'),
+                        (2, 'Kittens', 0, 'Argentina'),
                         (3, 'Good guys', 0, 'Finland'),
                         (4, 'Bears', 0, 'Norway'),
                         (5, 'Island', 0, 'Fiji'),
@@ -54,7 +48,7 @@ namespace dblaba.Database.Tables {
                         (9, 'Paris', 0, 'France'),
                         (10, 'Cars', 0, 'China')
                     ;
-                ", tableName, colId, colName, colSum, colCountry);
+                ", Name, ColId, ColName, ColSum, ColCountry);
 
                 Client.ExecuteQuite(query);
             }

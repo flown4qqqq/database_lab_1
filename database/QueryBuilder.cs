@@ -13,7 +13,6 @@ namespace dblaba.Database
                 SELECT * FROM information_schema.tables WHERE table_name = '{0}' AND table_schema = 'public';
             ", tableName);
 
-            System.Console.WriteLine(query);
             var reader = Client.ExecuteReader(query);
             return reader != null && reader.HasRows;
         }
