@@ -1,2 +1,2 @@
-# database_lab_1
+# dblaba
 Лабы по базам данных 
