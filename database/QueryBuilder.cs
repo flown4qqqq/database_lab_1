@@ -1,8 +1,4 @@
-using System;
-using System.Data.Common;
 using dblaba.Database.Tables;
-using Npgsql;
-using Pango;
 
 namespace dblaba.Database
 {

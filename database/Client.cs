@@ -1,5 +1,3 @@
-using System;
-using System.Data.Common;
 using Npgsql;
 
 namespace dblaba.Database

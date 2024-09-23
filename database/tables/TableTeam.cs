@@ -1,6 +1,3 @@
-using System;
-using Npgsql;
-
 namespace dblaba.Database.Tables {
     public class TableTeam : Table {
         public override string Name { 

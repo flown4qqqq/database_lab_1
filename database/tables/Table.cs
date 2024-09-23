@@ -1,6 +1,3 @@
-using System.Diagnostics;
-using Atk;
-
 namespace dblaba.Database.Tables {
     abstract public class Table {
         public abstract string Name { get; }
