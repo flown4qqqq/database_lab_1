@@ -51,7 +51,7 @@ Team.id <-> Sportsman.teamId: {
   }
 }
 
-CompetitionType.id <-> Competition.id: {
+CompetitionType.id <-> Competition.typeId: {
   source-arrowhead: {
     shape: cf-one
   }
@@ -60,7 +60,7 @@ CompetitionType.id <-> Competition.id: {
   }
 }
 
-Patricipation.id <-> Competition.id: {
+Patricipation.competitionId <-> Competition.id: {
   source-arrowhead: {
     shape: cf-one
   }
@@ -69,7 +69,7 @@ Patricipation.id <-> Competition.id: {
   }
 }
 
-Patricipation.id <-> Sportsman.id: {
+Patricipation.sportsmanId <-> Sportsman.id: {
   source-arrowhead: {
     shape: cf-many
   }
