@@ -8,16 +8,35 @@ namespace dblaba
         [STAThread]
         public static void Main(string[] args)
         {
-            Application.Init();
+            bool flagCreateNotForced = false;
+            bool flagCreateForced = false;
 
-            var app = new Application("org.dblaba.dblaba", GLib.ApplicationFlags.None);
-            app.Register(GLib.Cancellable.Current);
+            foreach (var arg in args) {
+                switch (arg) {
+                    case "-c": case "--create":
+                        flagCreateNotForced = true;
+                        break;
+                    case "-C": case "--create-forced":
+                        flagCreateForced = true;
+                        break;
+                    default:
+                        throw new("Unknown arguments");
+                }
+            }
 
-            var win = new MainWindow();
-            app.AddWindow(win);
+            Database.QueryComposer.Init(flagCreateNotForced, flagCreateForced);
 
-            win.Show();
-            Application.Run();
+            // Application.Init();
+
+            // var app = new Application("org.bd.bd", GLib.ApplicationFlags.None);
+            // app.Register(GLib.Cancellable.Current);
+
+            // var win = new MainWindow();
+            // app.AddWindow(win);
+
+            // win.Show();
+
+            // Application.Run();
         }
     }
 }
