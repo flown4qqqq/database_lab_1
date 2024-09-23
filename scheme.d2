@@ -22,7 +22,6 @@ CompetitionType: {
   id: int {constraint: primary_key}
   name: varchar(100)
   description: text
-  typeId: int {constraint: foreign_key}
 }
 
 Competition: {
@@ -30,6 +29,8 @@ Competition: {
   id: int {constraint: primary_key}
   name: varchar(100)
   dateOf: date
+  typeId: int {constraint: foreign_key}
+  place: varchar(100)
 }
 
 Patricipation: {
