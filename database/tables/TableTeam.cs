@@ -20,7 +20,7 @@ namespace dblaba.Database.Tables {
                 var query = string.Format(@"
                     CREATE TABLE {0}
                     (
-                        {1} INTEGER PRIMARY KEY,
+                        {1} SERIAL PRIMARY KEY,
                         {2} VARCHAR(50),
                         {3} DECIMAL,
                         {4} VARCHAR(100)
@@ -32,18 +32,18 @@ namespace dblaba.Database.Tables {
 
             {
                 var query = string.Format(@"
-                    INSERT INTO {0} ({1}, {2}, {3}, {4})
+                    INSERT INTO {0} ({2}, {3}, {4})
                     VALUES
-                        (1, 'Kangaroo', 0, 'Australia'),
-                        (2, 'Kittens', 0, 'Argentina'),
-                        (3, 'Good guys', 0, 'Finland'),
-                        (4, 'Bears', 0, 'Norway'),
-                        (5, 'Island', 0, 'Fiji'),
-                        (6, 'Far away', 0, 'Brazilia'),
-                        (7, 'Mexico', 0, 'Mexico'),
-                        (8, 'Bear', 0, 'Germany'),
-                        (9, 'Paris', 0, 'France'),
-                        (10, 'Cars', 0, 'China')
+                        ('Kangaroo', 0, 'Australia'),
+                        ('Kittens', 0, 'Argentina'),
+                        ('Good guys', 0, 'Finland'),
+                        ('Bears', 0, 'Norway'),
+                        ('Island', 0, 'Fiji'),
+                        ('Far away', 0, 'Brazilia'),
+                        ('Mexico', 0, 'Mexico'),
+                        ('Bear', 0, 'Germany'),
+                        ('Paris', 0, 'France'),
+                        ('Cars', 0, 'China')
                     ;
                 ", Name, ColId, ColName, ColSum, ColCountry);
 

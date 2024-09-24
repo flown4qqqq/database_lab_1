@@ -19,7 +19,7 @@ namespace dblaba.Database.Tables {
                 var query = string.Format(@"
                     CREATE TABLE {0}
                     (
-                        {1} INTEGER PRIMARY KEY,
+                        {1} SERIAL PRIMARY KEY,
                         {2} VARCHAR(100),
                         {3} TEXT
                     );
@@ -30,11 +30,11 @@ namespace dblaba.Database.Tables {
 
             {
                 var query = string.Format(@"
-                    INSERT INTO {0} ({1}, {2}, {3})
+                    INSERT INTO {0} ({2}, {3})
                     VALUES
-                        (1, 'football', 'very good description'),
-                        (2, 'handball', 'awesome description'),
-                        (3, 'golf', 'beatiful description')
+                        ('football', 'very good description'),
+                        ('handball', 'awesome description'),
+                        ('golf', 'beatiful description')
                     ;
                 ", Name, ColId, ColName, ColDescription);
 

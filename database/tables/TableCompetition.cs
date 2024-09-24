@@ -23,7 +23,7 @@ namespace dblaba.Database.Tables {
                 var query = string.Format(@"
                     CREATE TABLE {0}
                     (
-                        {1} INTEGER PRIMARY KEY,
+                        {1} SERIAL PRIMARY KEY,
                         {2} VARCHAR(100),
                         {3} DATE,
                         {4} INTEGER,
@@ -37,14 +37,14 @@ namespace dblaba.Database.Tables {
 
             {
                 var query = string.Format(@"
-                    INSERT INTO {0} ({1}, {2}, {3}, {4}, {5})
+                    INSERT INTO {0} ({2}, {3}, {4}, {5})
                     VALUES
-                        (1, 'football fan', '22-11-2025', 1, 'Moscow'),
-                        (2, 'football pro', '23-11-2025', 1, 'Moscow'),
-                        (3, 'handball fan', '12-11-2025', 2, 'Paris'),
-                        (4, 'handball pro', '13-11-2025', 2, 'Paris'),
-                        (5, 'golf fan', '15-11-2025', 3, 'London'),
-                        (6, 'golf pro', '16-11-2025', 3, 'London')
+                        ('football fan', '22-11-2025', 1, 'Moscow'),
+                        ('football pro', '23-11-2025', 1, 'Moscow'),
+                        ('handball fan', '12-11-2025', 2, 'Paris'),
+                        ('handball pro', '13-11-2025', 2, 'Paris'),
+                        ('golf fan', '15-11-2025', 3, 'London'),
+                        ('golf pro', '16-11-2025', 3, 'London')
                     ;
                 ", Name, ColId, ColName, ColDate, ColTypeId, ColPlace);
 
