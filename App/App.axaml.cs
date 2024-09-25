@@ -7,7 +7,7 @@ using dblaba.Views;
 namespace dblaba {
     public partial class App : Application
     {
-        public static MainWindowViewModel TopWindow = new MainWindowViewModel();
+        public static MainWindowViewModel TopWindow = null!;
         public override void Initialize()
         {
             AvaloniaXamlLoader.Load(this);
@@ -17,11 +17,6 @@ namespace dblaba {
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.MainWindow = new MainWindow
-                {
-                    DataContext = TopWindow
-                };
-
                 {
                     var args = desktop.Args!;
 
@@ -43,6 +38,13 @@ namespace dblaba {
 
                     Database.QueryComposer.Init(flagCreateNotForced, flagCreateForced);
                 }
+
+                TopWindow = new MainWindowViewModel();
+
+                desktop.MainWindow = new MainWindow
+                {
+                    DataContext = TopWindow
+                };
             }
 
             base.OnFrameworkInitializationCompleted();

@@ -6,13 +6,14 @@ namespace dblaba.ViewModels {
     public class MainWindowViewModel : ViewModelBase
     {
         Stack<SubViewModel> contentStack;
-        SubViewModel content;
+        SubViewModel content = null!;
 
         public MainWindowViewModel()
         {
             contentStack = new Stack<SubViewModel>();
-            // AddView(new MainMenuViewModel());
+            AddView(new MainMenuViewModel());
         }
+
         public void AddView(SubViewModel view)
         {
             contentStack.Push(view);

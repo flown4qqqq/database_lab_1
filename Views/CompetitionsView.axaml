@@ -1,0 +1,39 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:dblaba.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="dblaba.Views.CompetitionsView"
+        x:DataType="vm:CompetitionsViewModel"
+        FontSize="25"
+        >
+
+        <StackPanel Margin="10" HorizontalAlignment="Center">
+                <Button Content="Назад" HorizontalAlignment="Left" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).RemoveTopView}"/>
+                <TextBlock HorizontalAlignment="Center"> Соревнования </TextBlock>
+                <Separator/>
+                <DataGrid Margin="20" FontSize="10" GridLinesVisibility="All" IsReadOnly="True" ItemsSource="{Binding Competitions}">
+                        <DataGrid.Columns>
+                                <DataGridTemplateColumn Width="300" Header="Наименование" CanUserSort="true" SortMemberPath="Name">
+                                <!-- <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                        <Button
+                                                HorizontalAlignment="Center"
+                                                Width="300"
+                                                
+                                                Command="{Binding $parent[UserControl].((vm:DoctorsViewModel)DataContext).OpenDoctorReceptions}"
+                                                CommandParameter="{Binding Idx}"
+                                                Content="{Binding Name}"/>
+                                        </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate> -->
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Дата" Binding="{Binding Date}"/>
+                                <DataGridTextColumn Header="Наименование вида спорта" Binding="{Binding NameOfSport}"/>
+                                <DataGridTextColumn Header="Место проведения" Binding="{Binding Place}"/>
+                        </DataGrid.Columns>
+                </DataGrid>
+                <!-- <Button HorizontalAlignment="Center" Content="Добавить доктора" Command="{Binding AddDoctor}"/> -->
+        </StackPanel>
+
+</UserControl>
