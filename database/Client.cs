@@ -4,7 +4,7 @@ namespace dblaba.Database
 {
     public static class Client
     {
-        private static NpgsqlConnectionStringBuilder connectString;
+        private static NpgsqlConnectionStringBuilder connectString = null!;
 
         public static int ExecuteQuite(string query)
         {
