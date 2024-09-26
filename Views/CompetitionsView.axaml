@@ -15,7 +15,7 @@
                 <Separator/>
                 <DataGrid Margin="20" FontSize="10" GridLinesVisibility="All" IsReadOnly="True" ItemsSource="{Binding Competitions}">
                         <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="300" Header="Наименование" CanUserSort="true" SortMemberPath="Name">
+                                <DataGridTextColumn Width="300" Header="Наименование" Binding="{Binding Name}" CanUserSort="true" SortMemberPath="Name"/>
                                 <!-- <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                         <Button
@@ -27,13 +27,12 @@
                                                 Content="{Binding Name}"/>
                                         </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate> -->
-                                </DataGridTemplateColumn>
+                                <!-- </DataGridTemplateColumn> -->
                                 <DataGridTextColumn Header="Дата" Binding="{Binding Date}"/>
                                 <DataGridTextColumn Header="Наименование вида спорта" Binding="{Binding NameOfSport}"/>
                                 <DataGridTextColumn Header="Место проведения" Binding="{Binding Place}"/>
                         </DataGrid.Columns>
                 </DataGrid>
-                <!-- <Button HorizontalAlignment="Center" Content="Добавить доктора" Command="{Binding AddDoctor}"/> -->
         </StackPanel>
 
 </UserControl>

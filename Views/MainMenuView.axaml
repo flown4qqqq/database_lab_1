@@ -10,9 +10,9 @@
 	<StackPanel HorizontalAlignment="Center">
         <TextBlock FontSize="50" HorizontalAlignment="Center"> Главная </TextBlock>
 
-        <!-- <Grid HorizontalAlignment="Center" ColumnDefinitions="Auto,25,Auto" RowDefinitions="Auto,10,Auto,10,Auto,10,Auto,10,Auto" Margin="10">
+        <Grid HorizontalAlignment="Center" ColumnDefinitions="Auto,25,Auto" RowDefinitions="Auto,10,Auto,10,Auto,10,Auto,10,Auto" Margin="10">
             <TextBlock Text="Формы" Grid.Column="0" Grid.Row="0"/>
             <Button Content="Соревнования" Command="{Binding CompetitionsForm}" Grid.Column="0" Grid.Row="2"/>
-        </Grid> -->
+        </Grid>
     </StackPanel>
 </UserControl>
