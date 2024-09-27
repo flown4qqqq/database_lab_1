@@ -1,16 +1,21 @@
-using System.Collections.ObjectModel;
-using dblaba.DataModel;
-using dblaba.Database;
+using dblaba.BaseModels;
+using dblaba.Models;
+using System.Collections.Generic;
 
 namespace dblaba.ViewModels;
 
 public class CompetitionsViewModel : SubViewModel
 {
-	public ObservableCollection<Competition> Competitions { get; } = null!;
+    public CompetitionsModel Model;
+	public List<Competition> Competitions { get => Model.Competitions; }
 
 	public CompetitionsViewModel()
 	{   
-        var x = QueryComposer.JoinCompetitions();
-		Competitions = new ObservableCollection<Competition>(QueryComposer.JoinCompetitions());
+        Model = new CompetitionsModel();
 	}
+
+    public void AddCompetition() {
+		NewCompetitionViewModel newCompetition = new();
+        App.TopWindow.AddView(newCompetition);
+    }
 }

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using dblaba.DataModel;
+using dblaba.BaseModels;
 
 namespace dblaba.Database
 {

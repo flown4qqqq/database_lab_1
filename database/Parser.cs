@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using Npgsql;
-using dblaba.DataModel;
+using dblaba.BaseModels;
 using System;
 using dblaba.Database.Tables;
-using System.Linq;
 
 namespace dblaba.Database
 {
@@ -56,7 +55,7 @@ namespace dblaba.Database
                     if (k == name) {
                         competitions[i].Name = value[i].ToString()!;
                     } else if (k == date) {
-                        competitions[i].Date = value[i].ToString()!;
+                        competitions[i].Date = DateTimeOffset.Parse(value[i].ToString());
                     } else if (k == nameOfSport) {
                         competitions[i].NameOfSport = value[i].ToString()!;
                     } else if (k == place) {

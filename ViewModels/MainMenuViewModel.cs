@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
 using ReactiveUI;
 using dblaba.Database;
-using dblaba.DataModel;
+using dblaba.BaseModels;
 
 namespace dblaba.ViewModels;
 

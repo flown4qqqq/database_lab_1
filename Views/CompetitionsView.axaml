@@ -15,24 +15,13 @@
                 <Separator/>
                 <DataGrid Margin="20" FontSize="10" GridLinesVisibility="All" IsReadOnly="True" ItemsSource="{Binding Competitions}">
                         <DataGrid.Columns>
-                                <DataGridTextColumn Width="300" Header="Наименование" Binding="{Binding Name}" CanUserSort="true" SortMemberPath="Name"/>
-                                <!-- <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                        <Button
-                                                HorizontalAlignment="Center"
-                                                Width="300"
-                                                
-                                                Command="{Binding $parent[UserControl].((vm:DoctorsViewModel)DataContext).OpenDoctorReceptions}"
-                                                CommandParameter="{Binding Idx}"
-                                                Content="{Binding Name}"/>
-                                        </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate> -->
-                                <!-- </DataGridTemplateColumn> -->
-                                <DataGridTextColumn Header="Дата" Binding="{Binding Date}"/>
-                                <DataGridTextColumn Header="Наименование вида спорта" Binding="{Binding NameOfSport}"/>
-                                <DataGridTextColumn Header="Место проведения" Binding="{Binding Place}"/>
+                                <DataGridTextColumn Width="300" Header="Наименование" Binding="{Binding NameProperty}" CanUserSort="true" SortMemberPath="Name"/>
+                                <DataGridTextColumn Header="Дата" Binding="{Binding DateProperty_Parsed}"/>
+                                <DataGridTextColumn Header="Наименование вида спорта" Binding="{Binding NameOfSportProperty}"/>
+                                <DataGridTextColumn Header="Место проведения" Binding="{Binding PlaceProperty}"/>
                         </DataGrid.Columns>
                 </DataGrid>
+                <Button HorizontalAlignment="Center" Content="Добавить соревнование" Command="{Binding AddCompetition}"/>
         </StackPanel>
 
 </UserControl>
