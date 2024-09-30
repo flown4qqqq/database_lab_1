@@ -15,7 +15,7 @@ public class CompetitionsViewModel : SubViewModel
 	}
 
     public void AddCompetition() {
-		NewCompetitionViewModel newCompetition = new();
+		NewCompetitionViewModel newCompetition = new(Competitions);
         App.TopWindow.AddView(newCompetition);
     }
 }

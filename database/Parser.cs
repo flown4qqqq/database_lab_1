@@ -8,7 +8,7 @@ namespace dblaba.Database
 {
     public static class Parser
     {
-        private static Dictionary<string, List<string>> Parse(NpgsqlDataReader reader)
+        public static Dictionary<string, List<string>> Parse(NpgsqlDataReader reader)
         {
             var map = new Dictionary<string, List<string>>();
 

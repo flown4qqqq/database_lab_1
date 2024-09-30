@@ -24,7 +24,7 @@ namespace dblaba.Database.Tables {
                     CREATE TABLE {0}
                     (
                         {1} SERIAL PRIMARY KEY,
-                        {2} VARCHAR(100),
+                        {2} VARCHAR(100) UNIQUE,
                         {3} DATE,
                         {4} INTEGER,
                         {5} VARCHAR(100),
