@@ -12,6 +12,7 @@
             <Button Content="Назад" HorizontalAlignment="Left" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).RemoveTopView}"/>
 
             <TextBlock Text="Добавить соревнование" HorizontalAlignment="Center"/>
+            <Separator/>
 
             <Grid HorizontalAlignment="Center" ColumnDefinitions="Auto,10,Auto" RowDefinitions="Auto,10,Auto,10,Auto,10,Auto" Margin="10">
                     <TextBlock Text="Название соревнования" Grid.Column="0" Grid.Row="0"/>
