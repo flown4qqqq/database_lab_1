@@ -17,6 +17,11 @@ namespace dblaba.Database
             return Parser.JoinCompetitionsParse(QueryBuilder.JoinCompetitions());
         }
 
+        public static List<SportsmanPart> JoinParticipations(string competitionName)
+        {
+            return Parser.JoinParticipationsParse(QueryBuilder.JoinParticipations(competitionName));
+        }
+
         public static void Insert(string tableName, string[] columnNames, string[] args) {
             QueryBuilder.Insert(tableName, columnNames, args);
         }
@@ -26,4 +31,3 @@ namespace dblaba.Database
         }
     }
 }
-

@@ -34,6 +34,7 @@ namespace dblaba.Database
             return map;
         }
 
+        // Of course, it must not be here. Something (lol) wrong with my database module
         public static List<Competition> JoinCompetitionsParse(NpgsqlDataReader reader) {
             var name = AllTables.TableCompetitionInstance.ColName;
             var date = AllTables.TableCompetitionInstance.ColDate;
@@ -67,6 +68,52 @@ namespace dblaba.Database
             }
 
             return competitions;
+        }
+
+        public static List<SportsmanPart> JoinParticipationsParse(NpgsqlDataReader reader) {
+            var name = AllTables.TableSportsmanInstance.ColName;
+            var surname = AllTables.TableSportsmanInstance.ColSurname;
+            var patronymic = AllTables.TableSportsmanInstance.ColPatronymic;
+
+            var place = AllTables.TablePatricipationInstance.ColPlace;
+            var mark = AllTables.TablePatricipationInstance.ColMark;
+
+            var country = AllTables.TableTeamInstance.ColCountry;
+            var nameOfTeam = AllTables.TableTeamInstance.Name + "_" + AllTables.TableTeamInstance.ColName;
+
+            var map = Parse(reader);
+            var sportsmen = new List<SportsmanPart>();
+
+            foreach (KeyValuePair<string, List<string>> entry in map) {
+                var k = entry.Key;
+                var value = entry.Value;
+
+                for (int i = 0; i < value.Count; i++) {
+                    if (sportsmen.Count == i) {
+                        sportsmen.Add(new());
+                    }
+
+                    if (k == name) {
+                        sportsmen[i].Name = value[i].ToString()!;
+                    } else if (k == surname) {
+                        sportsmen[i].Surname = value[i].ToString()!;
+                    } else if (k == patronymic) {
+                        sportsmen[i].Patronymic = value[i].ToString()!;
+                    } else if (k == place) {
+                        sportsmen[i].Place = int.Parse(value[i].ToString()!);
+                    } else if (k == mark) {
+                        sportsmen[i].Mark = double.Parse(value[i].ToString()!);
+                    } else if (k == country) {
+                        sportsmen[i].TeamCountry = value[i].ToString()!;
+                    } else if (k == nameOfTeam) {
+                        sportsmen[i].TeamName = value[i].ToString()!;
+                    } else {
+                        throw new ArgumentException("Wrong parsed join");
+                    }
+                }
+            }
+
+            return sportsmen;
         }
     }
 }

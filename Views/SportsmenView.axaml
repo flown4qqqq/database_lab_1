@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:dblaba.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="dblaba.Views.SportsmenView"
+        x:DataType="vm:SportsmenViewModel"
+        >
+
+        <StackPanel HorizontalAlignment="Center">
+            <Button Content="Назад" HorizontalAlignment="Left" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).RemoveTopView}"/>
+
+            <TextBlock Text="{Binding CompetitionName, StringFormat='Участники {0}'}" HorizontalAlignment="Center"/>
+
+            <Separator/>
+
+            <DataGrid HorizontalAlignment="Center" Margin="20" FontSize="10" GridLinesVisibility="All" IsReadOnly="True" ItemsSource="{Binding SportsmenInfo}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Место" Binding="{Binding PlaceProperty}"/>
+                    <DataGridTextColumn Header="ФИО" Binding="{Binding FullNameProperty}"/>
+                    <DataGridTextColumn Header="Балл" Binding="{Binding MarkProperty}"/>
+                    <DataGridTextColumn Header="Название команды" Binding="{Binding TeamNameProperty}"/>
+                    <DataGridTextColumn Header="Страна" Binding="{Binding TeamCountryProperty}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button Content="Добавить спортсмена" HorizontalAlignment="Center" Command="{Binding AddSportsman}"/>
+        </StackPanel>
+</UserControl>

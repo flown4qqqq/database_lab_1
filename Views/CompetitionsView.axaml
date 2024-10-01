@@ -10,18 +10,31 @@
         >
 
         <StackPanel Margin="10" HorizontalAlignment="Center">
-                <Button Content="Назад" HorizontalAlignment="Left" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).RemoveTopView}"/>
-                <TextBlock HorizontalAlignment="Center"> Соревнования </TextBlock>
-                <Separator/>
-                <DataGrid Margin="20" FontSize="10" GridLinesVisibility="All" IsReadOnly="True" ItemsSource="{Binding Competitions}">
-                        <DataGrid.Columns>
-                                <DataGridTextColumn Width="300" Header="Наименование" Binding="{Binding NameProperty}" CanUserSort="true" SortMemberPath="Name"/>
-                                <DataGridTextColumn Header="Дата" Binding="{Binding DateProperty_Parsed}"/>
-                                <DataGridTextColumn Header="Наименование вида спорта" Binding="{Binding NameOfSportProperty}"/>
-                                <DataGridTextColumn Header="Место проведения" Binding="{Binding PlaceProperty}"/>
-                        </DataGrid.Columns>
-                </DataGrid>
-                <Button HorizontalAlignment="Center" Content="Добавить соревнование" Command="{Binding AddCompetition}"/>
-        </StackPanel>
+            <Button Content="Назад" HorizontalAlignment="Left" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).RemoveTopView}"/>
+            <TextBlock HorizontalAlignment="Center"> Соревнования </TextBlock>
 
+            <Separator/>
+
+            <DataGrid Margin="20" FontSize="10" GridLinesVisibility="All" IsReadOnly="True" ItemsSource="{Binding Competitions}">
+                <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="300" Header="Наименование" CanUserSort="true" SortMemberPath="Name">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                <Button
+                                        HorizontalAlignment="Center"
+                                        Width="300"
+                                        Command="{Binding $parent[UserControl].((vm:CompetitionsViewModel)DataContext).OpenListOfSportsmen}"
+                                        CommandParameter="{Binding IndexProperty}"
+                                        Content="{Binding NameProperty}"
+                                />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Дата" Binding="{Binding DateProperty_Parsed}"/>
+                        <DataGridTextColumn Header="Наименование вида спорта" Binding="{Binding NameOfSportProperty}"/>
+                        <DataGridTextColumn Header="Место проведения" Binding="{Binding PlaceProperty}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button HorizontalAlignment="Center" Content="Добавить соревнование" Command="{Binding AddCompetition}"/>
+        </StackPanel>
 </UserControl>

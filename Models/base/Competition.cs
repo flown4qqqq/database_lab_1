@@ -5,6 +5,7 @@ namespace dblaba.BaseModels;
 public class Competition
 {
     public int Id;
+    public int Index;
     public string Name = null!;
     public DateTimeOffset Date;
     public string NameOfSport = null!;
@@ -19,6 +20,11 @@ public class Competition
     public string NameProperty {
         get => Name;
         set => Name = value;
+    }
+
+    public int IndexProperty {
+        get => Index;
+        set => Index = value;
     }
 
     public DateTimeOffset DateProperty {

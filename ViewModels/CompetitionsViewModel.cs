@@ -10,12 +10,19 @@ public class CompetitionsViewModel : SubViewModel
 	public List<Competition> Competitions { get => Model.Competitions; }
 
 	public CompetitionsViewModel()
-	{   
-        Model = new CompetitionsModel();
-	}
+    {
+        Model = new();
+    }
 
-    public void AddCompetition() {
+    public void AddCompetition()
+    {
 		NewCompetitionViewModel newCompetition = new(Competitions);
         App.TopWindow.AddView(newCompetition);
+    }
+
+    public void OpenListOfSportsmen(int index)
+    {
+        SportsmenViewModel sportsmenInCompetition = new(Competitions[index]);
+		App.TopWindow.AddView(sportsmenInCompetition);
     }
 }

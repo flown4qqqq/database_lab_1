@@ -54,6 +54,82 @@ namespace dblaba.Database
             return reader;
         }
 
+        public static NpgsqlDataReader JoinParticipations(string competitionName)
+        {
+            int getId()
+            {
+                var tName = AllTables.TableCompetitionInstance.Name;
+                var tCol = AllTables.TableCompetitionInstance.ColName;
+                var map = Parser.Parse(Select(tName, ["id"], new(tCol, competitionName)));
+                int id = int.Parse(map["id"][0]);
+                return id;
+            }
+
+            var tSportsmenName = AllTables.TableSportsmanInstance.Name;
+            var tPartsName = AllTables.TablePatricipationInstance.Name;
+            var tTeamsName = AllTables.TableTeamInstance.Name;
+
+            var name = AllTables.TableSportsmanInstance.ColName;
+            var surname = AllTables.TableSportsmanInstance.ColSurname;
+            var patronymic = AllTables.TableSportsmanInstance.ColPatronymic;
+            var sportsmanTeamId = AllTables.TableSportsmanInstance.ColTeamId;
+            var sportsmanId = AllTables.TableSportsmanInstance.ColId;
+
+            var place = AllTables.TablePatricipationInstance.ColPlace;
+            var mark = AllTables.TablePatricipationInstance.ColMark;
+            var idParticipant = AllTables.TablePatricipationInstance.ColSportsmanId;
+            var idCompetition = AllTables.TablePatricipationInstance.ColCompetitionId;
+
+            var country = AllTables.TableTeamInstance.ColCountry;
+            var nameTeam = AllTables.TableTeamInstance.ColName;
+            var teamId = AllTables.TableTeamInstance.ColId;
+
+            var competitionId = getId().ToString();
+
+            var query = string.Format(@"
+                SELECT t1.{3}, t1.{4}, t1.{5}, t2.{6}, t2.{7}, t1.{8}, t1.{2}_{9}
+                FROM (
+                    (
+                        SELECT {1}.{6}, {1}.{7}, {1}.{14}
+                        FROM {1}
+                        WHERE {1}.{15} = {10}
+                    ) AS t2
+                    LEFT JOIN
+                    (
+                        SELECT {0}.{13}, {0}.{3}, {0}.{4}, {0}.{5}, {2}.{8}, {2}.{9} AS {2}_{9}
+                        FROM (
+                            {0}
+                            LEFT JOIN
+                            {2}
+                            ON {0}.{11} = {2}.{12}
+                        )
+                    ) AS t1
+                    ON t1.{13} = t2.{14}
+                );
+            ",
+
+                tSportsmenName,    // 0
+                tPartsName,        // 1
+                tTeamsName,        // 2
+                name,              // 3
+                surname,           // 4
+                patronymic,        // 5
+                place,             // 6
+                mark,              // 7
+                country,           // 8
+                nameTeam,          // 9
+                competitionId,     // 10
+                sportsmanTeamId,   // 11
+                teamId,            // 12
+                sportsmanId,       // 13
+                idParticipant,     // 14
+                idCompetition      // 15
+            );
+
+            var reader = Client.ExecuteReader(query);
+            return reader;
+        }
+
         public static void Init(bool flagCreateNotForced, bool flagCreateForced)
         {
             Client.Init();
