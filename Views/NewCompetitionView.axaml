@@ -9,32 +9,33 @@
         >
 
         <StackPanel HorizontalAlignment="Center">
-        <Button Content="Назад" HorizontalAlignment="Left" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).RemoveTopView}"/>
+            <Button Content="Назад" HorizontalAlignment="Left" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).RemoveTopView}"/>
 
-        <TextBlock Text="Добавить соревнование" HorizontalAlignment="Center"/>
-        <Grid HorizontalAlignment="Center" ColumnDefinitions="Auto,10,Auto" RowDefinitions="Auto,10,Auto,10,Auto,10,Auto" Margin="10">
-                <TextBlock Text="Название соревнования" Grid.Column="0" Grid.Row="0"/>
-                <TextBox Text="{Binding Name}" Grid.Column="2" Grid.Row="0" />
+            <TextBlock Text="Добавить соревнование" HorizontalAlignment="Center"/>
 
-                <TextBlock Text="Дата" Grid.Column="0" Grid.Row="2"/>
-                <DatePicker SelectedDate="{Binding Date}" Grid.Column="2" Grid.Row="2" />
+            <Grid HorizontalAlignment="Center" ColumnDefinitions="Auto,10,Auto" RowDefinitions="Auto,10,Auto,10,Auto,10,Auto" Margin="10">
+                    <TextBlock Text="Название соревнования" Grid.Column="0" Grid.Row="0"/>
+                    <TextBox Text="{Binding Name}" Grid.Column="2" Grid.Row="0" />
 
-                <TextBlock Text="Наименование вида спорта" Grid.Column="0" Grid.Row="4"/>
-                <ComboBox ItemsSource="{Binding CompetitionTypes}" SelectedItem="{Binding ChosenCompetitionType}" Grid.Column="2" Grid.Row="4">
-                        <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                                <TextBlock Text="{Binding NameProperty}" />
-                        </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                </ComboBox>
+                    <TextBlock Text="Дата" Grid.Column="0" Grid.Row="2"/>
+                    <DatePicker SelectedDate="{Binding Date}" Grid.Column="2" Grid.Row="2" />
 
-                <!-- <TextBox Text="{Binding NameOfSport}" Grid.Column="2" Grid.Row="4" /> -->
+                    <TextBlock Text="Наименование вида спорта" Grid.Column="0" Grid.Row="4"/>
+                    <ComboBox ItemsSource="{Binding CompetitionTypes}" SelectedItem="{Binding ChosenCompetitionType}" Grid.Column="2" Grid.Row="4">
+                            <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                    <TextBlock Text="{Binding NameProperty}" />
+                            </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                    </ComboBox>
 
-                <TextBlock Text="Место проведения" Grid.Column="0" Grid.Row="6"/>
-                <TextBox Text="{Binding Place}" Grid.Column="2" Grid.Row="6" />
-        </Grid>
+                    <!-- <TextBox Text="{Binding NameOfSport}" Grid.Column="2" Grid.Row="4" /> -->
 
-        <Button Content="Добавить" HorizontalAlignment="Center" Command="{Binding Add}"/>
+                    <TextBlock Text="Место проведения" Grid.Column="0" Grid.Row="6"/>
+                    <TextBox Text="{Binding Place}" Grid.Column="2" Grid.Row="6" />
+            </Grid>
+
+            <Button Content="Добавить" HorizontalAlignment="Center" Command="{Binding Add}"/>
         </StackPanel>
 
 </UserControl>
