@@ -12,6 +12,7 @@ public class SportsmanPart
     public string TeamCountry = null!;
     public int Place;
     public double Mark;
+    public int IdSportsman;
 
     public string FullNameProperty {
         get => Surname + " " + Name + " " + Patronymic;

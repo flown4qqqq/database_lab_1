@@ -21,6 +21,7 @@ public class SportsmenViewModel : SubViewModel
     }
 
     public void AddSportsman() {
-
+		NewSportsmanViewModel newSportsman = new(ChosenCompetition);
+        App.TopWindow.AddView(newSportsman);
     }
 }
