@@ -34,16 +34,16 @@ namespace dblaba.Database.Tables {
                 var query = string.Format(@"
                     INSERT INTO {0} ({2}, {3}, {4})
                     VALUES
-                        ('Kangaroo', 0, 'Australia'),
-                        ('Kittens', 0, 'Argentina'),
-                        ('Good guys', 0, 'Finland'),
-                        ('Bears', 0, 'Norway'),
-                        ('Island', 0, 'Fiji'),
-                        ('Far away', 0, 'Brazilia'),
-                        ('Mexico', 0, 'Mexico'),
-                        ('Bear', 0, 'Germany'),
-                        ('Paris', 0, 'France'),
-                        ('Cars', 0, 'China')
+                        ('Кенгуру', 0, 'Австралия'),
+                        ('Котята', 0, 'Аргентина'),
+                        ('Хорошие ребята', 0, 'Финляндия'),
+                        ('Медведи', 0, 'Норвегия'),
+                        ('Острова', 0, 'Фиджи'),
+                        ('Далеко', 0, 'Бразилия'),
+                        ('Мехико', 0, 'Мексика'),
+                        ('Пиво', 0, 'Германия'),
+                        ('Париж', 0, 'Франция'),
+                        ('Машинки', 0, 'Китай')
                     ;
                 ", Name, ColId, ColName, ColSum, ColCountry);
 

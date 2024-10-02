@@ -32,9 +32,9 @@ namespace dblaba.Database.Tables {
                 var query = string.Format(@"
                     INSERT INTO {0} ({2}, {3})
                     VALUES
-                        ('football', 'very good description'),
-                        ('handball', 'awesome description'),
-                        ('golf', 'beatiful description')
+                        ('Футбол', 'Очень хорошее описание'),
+                        ('Гандбол', 'Невероятное описание'),
+                        ('Гольф', 'Прекрасное описание')
                     ;
                 ", Name, ColId, ColName, ColDescription);
 

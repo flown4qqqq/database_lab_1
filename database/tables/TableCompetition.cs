@@ -39,12 +39,12 @@ namespace dblaba.Database.Tables {
                 var query = string.Format(@"
                     INSERT INTO {0} ({2}, {3}, {4}, {5})
                     VALUES
-                        ('football fan', '22-11-2025', 1, 'Moscow'),
-                        ('football pro', '23-11-2025', 1, 'Moscow'),
-                        ('handball fan', '12-11-2025', 2, 'Paris'),
-                        ('handball pro', '13-11-2025', 2, 'Paris'),
-                        ('golf fan', '15-11-2025', 3, 'London'),
-                        ('golf pro', '16-11-2025', 3, 'London')
+                        ('Футбол фан', '22-11-2025', 1, 'Москва'),
+                        ('Футбол про', '23-11-2025', 1, 'Москва'),
+                        ('Гандбол фан', '12-11-2025', 2, 'Париж'),
+                        ('Гандбол про', '13-11-2025', 2, 'Париж'),
+                        ('Гольф фан', '15-11-2025', 3, 'Лондон'),
+                        ('Гольф про', '16-11-2025', 3, 'Лондон')
                     ;
                 ", Name, ColId, ColName, ColDate, ColTypeId, ColPlace);
 
