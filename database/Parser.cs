@@ -40,6 +40,7 @@ namespace dblaba.Database
             var date = AllTables.TableCompetitionInstance.ColDate;
             var nameOfSport = AllTables.TableCompetitionTypeInstance.Name + "_" + AllTables.TableCompetitionTypeInstance.ColName;
             var place = AllTables.TableCompetitionInstance.ColPlace;
+            var id = AllTables.TableCompetitionInstance.ColId;
 
             var competitions = new List<Competition>();
             var map = Parse(reader);
@@ -54,13 +55,15 @@ namespace dblaba.Database
                     }
 
                     if (k == name) {
-                        competitions[i].Name = value[i].ToString()!;
+                        competitions[i].Name = value[i]!;
                     } else if (k == date) {
-                        competitions[i].Date = DateTimeOffset.Parse(value[i].ToString());
+                        competitions[i].Date = DateTimeOffset.Parse(value[i]);
                     } else if (k == nameOfSport) {
-                        competitions[i].NameOfSport = value[i].ToString()!;
+                        competitions[i].NameOfSport = value[i]!;
                     } else if (k == place) {
-                        competitions[i].Place = value[i].ToString()!;
+                        competitions[i].Place = value[i]!;
+                    } else if (k == id) {
+                        competitions[i].Id = int.Parse(value[i]);
                     } else {
                         throw new ArgumentException("Wrong parsed join");
                     }

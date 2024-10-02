@@ -32,7 +32,7 @@ namespace dblaba.Database
             var idPK = AllTables.TableCompetitionTypeInstance.ColId;
 
             var query = string.Format(@"
-                SELECT {4}.{0}, {4}.{1}, {5}.{2} as {5}_{2}, {4}.{3} 
+                SELECT {4}.{0}, {4}.{1}, {5}.{2} as {5}_{2}, {4}.{3}, {4}.{7}
                 FROM (
                     {4}
                     LEFT JOIN
