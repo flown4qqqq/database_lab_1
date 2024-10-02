@@ -61,6 +61,8 @@ public class NewCompetitionViewModel : SubViewModel
                     [t.ColName, t.ColDate, t.ColTypeId, t.ColPlace],
                     [Name, Date.ToString(), idOfSportByName.ToString(), Place]
                 );
+
+				App.TopWindow.RemoveTopView();
             }
         );
 	}
